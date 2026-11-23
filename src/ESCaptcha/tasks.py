@@ -137,6 +137,27 @@ class TencentSliderTaskProxyLess(BaseTask):
 
 
 @dataclass
+class FriendlyCaptchaTaskProxyLess(BaseTask):
+    websiteURL: str
+    websiteKey: str
+    endpoint: Optional[str] = None
+    userAgent: Optional[str] = None
+    language: Optional[str] = None
+    sdkUrl: Optional[str] = None
+
+    def __init__(self, url: str, site_key: str, endpoint: Optional[str] = None,
+                 user_agent: Optional[str] = None, language: Optional[str] = None,
+                 sdk_url: Optional[str] = None):
+        super().__init__('FriendlyCaptchaTaskProxyLess')
+        self.websiteURL = url
+        self.websiteKey = site_key
+        self.endpoint = endpoint
+        self.userAgent = user_agent
+        self.language = language
+        self.sdkUrl = sdk_url
+
+
+@dataclass
 class CloudflareJsdTaskProxyLess(BaseTask):
     websiteURL: str
     proxy: Optional[str] = None
