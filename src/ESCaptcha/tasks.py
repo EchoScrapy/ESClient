@@ -137,6 +137,22 @@ class TencentSliderTaskProxyLess(BaseTask):
 
 
 @dataclass
+class FriendlyCaptchaV1TaskProxyLess(BaseTask):
+    websiteURL: str
+    websiteKey: str
+    endpoint: Optional[str] = None
+    puzzleEndpoint: Optional[str] = None
+
+    def __init__(self, url: str, site_key: str, endpoint: Optional[str] = None,
+                 puzzle_endpoint: Optional[str] = None):
+        super().__init__('FriendlyCaptchaV1TaskProxyLess')
+        self.websiteURL = url
+        self.websiteKey = site_key
+        self.endpoint = endpoint
+        self.puzzleEndpoint = puzzle_endpoint
+
+
+@dataclass
 class FriendlyCaptchaTaskProxyLess(BaseTask):
     websiteURL: str
     websiteKey: str
