@@ -20,6 +20,27 @@ class ImageToTextTask(BaseTask):
 
 
 @dataclass
+class ReCaptchaAndroidTaskProxyLess(BaseTask):
+    appKey: str
+    appPackageName: str
+    appAction: str
+    sdkVersion: Optional[str] = None
+    sdkInt: Optional[str] = None
+    proxy: Optional[str] = None
+
+    def __init__(self, site_key: str, package_name: str, action: str,
+                 sdk_version: Optional[str] = None, sdk_int: Optional[str] = None,
+                 proxy: Optional[str] = None):
+        super().__init__('ReCaptchaAndroidTaskProxyLess')
+        self.appKey = site_key
+        self.appPackageName = package_name
+        self.appAction = action
+        self.sdkVersion = sdk_version
+        self.sdkInt = sdk_int
+        self.proxy = proxy
+
+
+@dataclass
 class ReCaptchaV2TaskProxyLess(BaseTask):
     websiteURL: str
     websiteKey: str
