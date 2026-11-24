@@ -41,6 +41,6 @@ solution = client.get_task_result(task_id)
 print(solution["gRecaptchaResponse"])
 ```
 
-Task classes are available in `ESCaptcha.tasks` for reCAPTCHA v3, reCAPTCHA Android (`ReCaptchaAndroidTaskProxyLess`), ImageToText, AWS WAF, Tencent Slider, Geetest v3/v4, Cloudflare JSD, and FriendlyCaptcha v1/v2. Use `FriendlyCaptchaV1TaskProxyLess` for the v1 `frc-captcha-solution` field and `FriendlyCaptchaTaskProxyLess` for v2 `frc-captcha-response`. Both return `solution["token"]`. The server determines which task types are supported.
+Task classes are available in `ESCaptcha.tasks` for reCAPTCHA v3, reCAPTCHA Android (`ReCaptchaAndroidTaskProxyLess`), ImageToText, AWS WAF, Tencent Slider, Geetest v3/v4, Cloudflare JSD, Cloudflare Turnstile (`TurnstileTaskProxyLess`), and FriendlyCaptcha v1/v2. Turnstile returns `token` for widgets or `cf_clearance` with `user_agent` for challenge pages. Use `FriendlyCaptchaV1TaskProxyLess` for the v1 `frc-captcha-solution` field and `FriendlyCaptchaTaskProxyLess` for v2 `frc-captcha-response`. Both return `solution["token"]`. The server determines which task types are supported.
 
 `get_task_result()` raises `SolverClientError` when the server reports a failed task instead of waiting until the polling timeout.

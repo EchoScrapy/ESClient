@@ -82,11 +82,18 @@ class HCaptchaTaskProxyLess(BaseTask):
 class TurnstileTaskProxyLess(BaseTask):
     websiteURL: str
     websiteKey: str
+    action: Optional[str] = None
+    cData: Optional[str] = None
+    proxy: Optional[str] = None
 
-    def __init__(self, url: str, site_key: str):
+    def __init__(self, url: str, site_key: str, action: Optional[str] = None,
+                 cdata: Optional[str] = None, proxy: Optional[str] = None):
         super().__init__('TurnstileTaskProxyLess')
         self.websiteURL = url
         self.websiteKey = site_key
+        self.action = action
+        self.cData = cdata
+        self.proxy = proxy
 
 
 @dataclass
