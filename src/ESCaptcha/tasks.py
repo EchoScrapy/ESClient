@@ -20,6 +20,15 @@ class ImageToTextTask(BaseTask):
 
 
 @dataclass
+class TikTok3DTask(BaseTask):
+    challenge: Dict[str, Any]
+
+    def __init__(self, challenge: Dict[str, Any]):
+        super().__init__('TikTok3DTask')
+        self.challenge = challenge
+
+
+@dataclass
 class ReCaptchaAndroidTaskProxyLess(BaseTask):
     appKey: str
     appPackageName: str
